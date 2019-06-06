@@ -194,6 +194,9 @@ This will result in a prompt inside the container:
 [root@drill drill]#
 ```
 
+## Acknowledgements
+* This repo was inspired by [this post](https://medium.com/@mattia.casotto90/connect-datagrip-with-apache-drill-running-on-a-container-1368e3173f5c) by [Mattia Casotto](https://github.com/casotto).
+* The Dockerfile is an adapted version from [Apache's Drill Dockerfile](https://github.com/apache/drill/blob/master/distribution/Dockerfile)
 
 
 
