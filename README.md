@@ -62,7 +62,7 @@ git version 2.20.1 (Apple Git-117)
 git clone https://github.com/mschermann/docker_apache_drill_datagrip.git
 ```
 
-## Build the container
+## Build and start the container
 
 1. Check the configuration:
 ```
@@ -116,7 +116,13 @@ e382a3c16e10_drill | "There are two types of analysts in the world: those who us
 
 Additionally, this step has also extracted the JDBC driver for Apache Drill (e.g., `drill-jdbc-all-1.16.0.jar`) into the `/build` folder.
 
-4. Explore Drill
+## Explore Drill
 
 Drill is starting a web GUI at [http://localhost:8047](http://localhost:8047).
+
+![Drill Overview](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_overview.png)
+
+
+
+
 
