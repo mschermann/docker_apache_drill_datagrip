@@ -1,3 +1,4 @@
 data/*
 *.parquet
 *.jar
+*.csv

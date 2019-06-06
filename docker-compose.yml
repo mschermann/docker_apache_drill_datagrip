@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  drill: 
+    build:
+      # We build the file from the current folder
+      context: ./build
+      # The `Dockerfile contains the build instructions
+      dockerfile: Dockerfile
+      # We hand over the `DRILL_VERSION` variable to the build.
+      args:
+        - DRILL_VERSION=${DRILL_VERSION}
+    restart: on-failure
+    hostname: drill
+    container_name: drill
+    environment:
+      # We hand over the `DRILL_VERSION` variable to the container enviroment.
+      # This makes the variable available to the command script
+      - DRILL_VERSION=${DRILL_VERSION}
+    volumes:
+      # Expose the build directory to get the JDBC driver
+      - ./build:/drill
+      # The data directory for the data files.
+      - ./data:/data
+    # This is the script that is executed when the container is started.
+    command: ./run_drill.sh
+    # We make the standard drill ports available
+    ports:
+      - "8047:8047"
+      - "31010:31010"
+    # We allow for console
+    tty: true
+
+# SETUP
+#chmod +x run_drill.sh
