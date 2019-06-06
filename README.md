@@ -4,6 +4,8 @@
 * While creating the container, the image will also generate a `/data` folder for the data files. 
 * This image will also extract the jdbc driver jar of Apache Drill to connect SQL user interfaces (e.g., Data Grip) to the Drill container.
 
+This image allows you to generate an out-of-the-box analytics environment without cluttering your machine. If this is not your cup of tea, head over to the [instructions](https://drill.apache.org/docs/install-drill/) for a standard installation of Apache Drill.
+
 ## Docker Environment
 
 Install Docker by following the instructions [here](https://www.docker.com/products/docker-desktop). If you do not have an account with Docker, you may be asked to create one. 
