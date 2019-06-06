@@ -122,6 +122,20 @@ Drill is starting a web GUI at [http://localhost:8047](http://localhost:8047).
 
 ![Drill Overview](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_overview.png)
 
+If you click on `Query`, you can run SQL queries directly from the broswer (Do not use this for any heavy-load querying). 
+
+![Drill Overview Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_overview_query.png)
+
+Just to make sure that everything works fine, enter the example query `SELECT * FROM cp.`employee.json` LIMIT 20`.
+
+![Drill Example Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_query_example.png)
+
+It will show you a waiting screen and, if everything works fine, the results.
+
+![Drill Example Query Results](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_query_example_results.png)
+
+
+
 
 
 
