@@ -142,6 +142,30 @@ It will show you a waiting screen and, if everything works fine, the results.
 
 Now, head over to the [Drill Documentation](https://drill.apache.org/docs/query-data/) and start learning how to use Drill.
 
+## Connect to the Drill container with a SQL tool
+Let's connect [Data Grip](http://www.jetbrains.com/datagrip) to the Drill container.
+
+1. Create a new Driver in Data Grip by pointing towards the JDBC driver for Apache Drill in the `/build` folder.
+
+![Data Grip Driver](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/data_grip_drill_driver.png)
+
+2. Create a data source using the Drill driver. Test the connection and make sure you get the green checkmark.
+
+![Data Grip Datasource](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/data_grip_drill_connection.png)
+
+3. Run a Sample Query
+
+Using the same query as above (`SELECT * FROM cp.`employee.json` LIMIT 20`), you should see the following output.
+
+![Data Grip Sample Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/data_grip_sample_query.png)
+
+At this point you are all set. Add your data files to the `/data` folder and you should be able to query them.
+
+If you use parquet data files, the following command will give you the five rows of the data.
+```
+SELECT * FROM dfs.`/data` LIMIT 5;
+```
+
 ## Access the Drill container
 
 If you want to access the Drill container.
