@@ -2,7 +2,7 @@
 
 * This will create a [Docker](https://www.docker.com) container of [Apache Drill](https://drill.apache.org) for analyzing file-based data (e.g., parquet files). 
 * While creating the container, the image will also generate a `/data` folder for the data files. 
-* This image will also extract the jdbc driver jar of Apache Drill to connect SQL user interfaces (e.g. Data Grip) to the Drill container.
+* This image will also extract the jdbc driver jar of Apache Drill to connect SQL user interfaces (e.g., Data Grip) to the Drill container.
 
 ## Docker Environment
 
@@ -38,11 +38,11 @@ Server: Docker Engine - Community
 
 The docker image contains the following files:
 
-* The `docker-compose.yml` file contains the description of how to build and configure the container that will run Apache Drill.
-* The `.env` file contains the parameter `DRILL_VERSION` that is determines which version of Apache Drill is being built and run. Currently, the `DRILL_VERSION` is set to `1.16.0`. If you need to change this, adapt the `.env` file.
+* The `docker-compose.yml` file includes the description of how to build and configure the container that will run Apache Drill.
+* The `.env` file contains the parameter `DRILL_VERSION` that determines which version of Apache Drill is being built and run. Currently, the `DRILL_VERSION` is set to `1.16.0`. If you need to change this, adapt the `.env` file.
 * The `/build/Dockerfile` contains the build descriptions for the container.
 * The `run_drill.sh` contains the startup script for Apache Drill. 
-* The `.gitignore` prevents that anything in the data folder or any parquet/csv files will be added to the repository.
+* The `.gitignore` prevents that any file in the data folder or any parquet/csv files will be added to the repository.
 
 ## Get the docker image
 
@@ -128,11 +128,11 @@ Drill is starting a web GUI at [http://localhost:8047](http://localhost:8047).
 
 ![Drill Overview](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_overview.png)
 
-If you click on `Query`, you can run SQL queries directly from the broswer (Do not use this for any heavy-load querying). 
+If you click on `Query`, you can run SQL queries directly from the browser (Do not use this for any heavy-load querying). 
 
 ![Drill Overview Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_overview_query.png)
 
-Just to make sure that everything works fine, enter the example query `SELECT * FROM cp.`employee.json` LIMIT 20`.
+Make sure that everything works fine by entering the example query `SELECT * FROM cp.`employee.json` LIMIT 20`.
 
 ![Drill Example Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_query_example.png)
 
@@ -159,18 +159,18 @@ Using the same query as above (`SELECT * FROM cp.`employee.json` LIMIT 20`), you
 
 ![Data Grip Sample Query](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/data_grip_sample_query.png)
 
-At this point you are all set. Add your data files to the `/data` folder and you should be able to query them.
+At this point, you are all set. Add your data files to the `/data` folder, and you should be able to query them.
 
 If you use [parquet data files](https://drill.apache.org/docs/querying-parquet-files/), the following command will give you the five rows of the data.
 ```
 SELECT * FROM dfs.`/data` LIMIT 5;
 ```
 
-Head over to the [Drill documentation](https://drill.apache.org/docs/query-data-introduction/) for more in-depth explanation and help.
+Head over to the [Drill documentation](https://drill.apache.org/docs/query-data-introduction/) for a more in-depth explanation and help.
 
 ## Access the Drill container
 
-If you want to access the Drill container.
+You may want to access the Drill container at some point in time. The following step show how to connect to the container.
 
 1. Find the name of your container.
 ```
