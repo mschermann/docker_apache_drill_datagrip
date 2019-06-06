@@ -1,6 +1,6 @@
 # Docker Image for Apache Drill
 
-* This will create a Docker container of Apache Drill for analyzing file-based data (e.g., parquet files). 
+* This will create a [Docker](https://www.docker.com) container of [Apache Drill](https://drill.apache.org) for analyzing file-based data (e.g., parquet files). 
 * While creating the container, the image will also generate a `/data` folder for the data files. 
 * This image will also extract the jdbc driver jar of Apache Drill to connect SQL user interfaces (e.g. Data Grip) to the Drill container.
 
@@ -103,7 +103,7 @@ Step 1/13 : FROM centos:latest
 ...
 ```
 
-3. Start the container
+3. Start and stop the container
 ```
 docker-compose up
 ```
@@ -115,6 +115,12 @@ e382a3c16e10_drill | "There are two types of analysts in the world: those who us
 ```
 
 Additionally, this step has also extracted the JDBC driver for Apache Drill (e.g., `drill-jdbc-all-1.16.0.jar`) into the `/build` folder.
+
+You can stop the container with `Control+C`, which should result in the following output:
+```
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping e382a3c16e10_drill ... done
+```
 
 ## Explore Drill
 
@@ -133,6 +139,32 @@ Just to make sure that everything works fine, enter the example query `SELECT * 
 It will show you a waiting screen and, if everything works fine, the results.
 
 ![Drill Example Query Results](https://github.com/mschermann/docker_apache_drill_datagrip/blob/master/assets/drill_query_example_results.png)
+
+Now, head over to the [Drill Documentation](https://drill.apache.org/docs/query-data/) and start learning how to use Drill.
+
+## Access the Drill container
+
+If you want to access the Drill container.
+
+1. Find the name of your container.
+```
+docker ps
+```
+This should result in an output like this:
+```
+CONTAINER ID  IMAGE  COMMAND  CREATED  STATUS  PORTS  NAMES
+e382a3c16e10  docker_drill_parquet_datagrip_drill  "./run_drill.sh"  About an hour ago  Up 47 seconds  0.0.0.0:8047->8047/tcp, 0.0.0.0:31010->31010/tcp e382a3c16e10_drill
+```
+
+2. Access the container
+From the `NAMES` column, you can see that this container is called `e382a3c16e10_drill`. You can connect to this container using the following command:
+```
+docker exec -it e382a3c16e10_drill bash
+```
+This will result in a prompt inside the container:
+```
+[root@drill drill]#
+```
 
 
 
