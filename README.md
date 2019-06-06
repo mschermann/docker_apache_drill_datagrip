@@ -161,10 +161,12 @@ Using the same query as above (`SELECT * FROM cp.`employee.json` LIMIT 20`), you
 
 At this point you are all set. Add your data files to the `/data` folder and you should be able to query them.
 
-If you use parquet data files, the following command will give you the five rows of the data.
+If you use [parquet data files](https://drill.apache.org/docs/querying-parquet-files/), the following command will give you the five rows of the data.
 ```
 SELECT * FROM dfs.`/data` LIMIT 5;
 ```
+
+Head over to the [Drill documentation](https://drill.apache.org/docs/query-data-introduction/) for more in-depth explanation and help.
 
 ## Access the Drill container
 
