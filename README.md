@@ -36,6 +36,8 @@ Server: Docker Engine - Community
   Experimental:     false
 ```
 
+**Tip: Use the Docker app to adjust the memory, swap, and CPUs allocated to Docker containers.**
+
 ## The docker image
 
 The docker image contains the following files:
